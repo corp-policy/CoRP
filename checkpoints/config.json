@@ -1,0 +1,31 @@
+{
+  "image_size": 224,
+  "action_dim": 7,
+  "action_horizon": 12,
+  "state_dim": 8,
+  "hidden_dim": 768,
+  "view_names": [
+    "agentview",
+    "eye_in_hand"
+  ],
+  "representation_extractor": {
+    "visual_encoder": "dinov2_vits14",
+    "language_encoder": {
+      "name": "t5-efficient-tiny",
+      "max_length": 32
+    },
+    "cross_attention_resampler": {
+      "tokens_per_view": 48,
+      "num_heads": 8,
+      "film_rank": 64
+    }
+  },
+  "action_generator": {
+    "num_layers": 1,
+    "num_heads": 12,
+    "mlp_ratio": 4.0,
+    "max_horizon": 128,
+    "adaln_rank": 64,
+    "num_sample_steps": 10
+  }
+}

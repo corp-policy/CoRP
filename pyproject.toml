@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "corp-policy"
+version = "0.2.0"
+description = "Compressed Representation Policy: LIBERO inference"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {file = "LICENSE"}
+dependencies = ["numpy==1.26.4", "torch==2.11.0", "transformers==4.48.1"]
+
+[project.urls]
+Homepage = "https://corp-policy.github.io/"
+
+[project.optional-dependencies]
+libero = [
+  "bddl==1.0.1", "cloudpickle", "easydict", "future", "gym==0.25.2", "h5py>=3.10",
+  "matplotlib>=3.8", "mujoco==3.3.0", "Pillow==12.2.0", "PyYAML>=6",
+  "robosuite==1.4.1", "scipy==1.15.3",
+]
+
+[tool.setuptools.packages.find]
+include = ["corp*"]
+
+[tool.setuptools]
+license-files = ["LICENSE", "NOTICE"]
+
+[tool.setuptools.package-data]
+corp = ["assets/t5_efficient_tiny/*", "_vendor/DINOV2_LICENSE"]
